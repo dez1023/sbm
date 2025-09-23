@@ -8,15 +8,6 @@ const mario = new PlayerEntity(
   10,
 );
 
-function bunsCollisions() {
-  colliders.forEach((collider) => {
-    if (collider != mario.collision && collider.touching(mario)) {
-      mario.position = mario.position.add(new Vector3(0, 1, 0));
-      mario.linearVelocity = mario.linearVelocity.mult(new Vector3(1, 0, 1));
-    }
-  });
-}
-
 function InitGame() {
   Object.assign(body.style, {
     width: wWidth + "px",
