@@ -1,3 +1,5 @@
+const base = "https://dez1023.github.io/sbm";
+
 const scripts = [
 '/src/SBM/index.js', 
 '/src/SBM/utils.js', 
@@ -12,7 +14,7 @@ const scripts = [
 
 scripts.forEach((script) => {
     const scriptElement = document.createElement("script");
-    scriptElement.src = script;
+    scriptElement.src = base+script;
     document.body.appendChild(scriptElement);
 });
 
