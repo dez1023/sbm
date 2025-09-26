@@ -18,5 +18,5 @@ startButton.addEventListener("click", (ev) => {
   InitGame();
 });
 
-startButton.remove();
-InitGame();
+//startButton.remove();
+//InitGame();
