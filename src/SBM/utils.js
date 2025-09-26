@@ -51,8 +51,9 @@ function GetTextOfElement(element) {
     },
     "",
   );
+}
 
-    const requiredVisibleStyles = [
+const requiredVisibleStyles = [
     [
       "background",
       "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
@@ -61,7 +62,6 @@ function GetTextOfElement(element) {
     ["display", "none"],
     ["visibility", "hidden"],
   ];
-}
 
   function isAVisibleElement(element) {
     const style = window.getComputedStyle(element);
@@ -78,7 +78,6 @@ function GetTextOfElement(element) {
 
     return valid;
   }
-}
 
 function isStringBlank(str) {
   return str === null || str === undefined || str.trim().length === 0;
