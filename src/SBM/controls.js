@@ -4,7 +4,7 @@ document.addEventListener("keydown", function (e) {
   if (e.repeat) {
     return;
   }
-  if (e.key == "ArrowUp" && currentPlayerEntity) {
+  if (e.key == "z" && currentPlayerEntity) {
     currentPlayerEntity.linearVelocity = currentPlayerEntity.linearVelocity
       .mult(new Vector3(1, 0, 1))
       .add(new Vector3(0, 15, 0));
