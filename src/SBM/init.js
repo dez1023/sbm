@@ -67,6 +67,6 @@ function InitGame() {
   document.body.appendChild(mario.element);
   mario.element.style =
     "all: unset; position: absolute; background: white; border: 1px solid black; width: 50px; height: 50px;";
-  currentPlayerEntity = mario;
+  playerEntity = mario;
   window.requestAnimationFrame(MainUpdate);
 }
