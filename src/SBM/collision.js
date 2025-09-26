@@ -37,15 +37,15 @@ class BoxCollision extends Collision {
 
 function bunsCollisions() {
   colliders.forEach((collider) => {
-    if (collider != mario.collision && collider.touching(mario)) {
+    if (collider != playerEntity.collision && collider.touching(playerEntity)) {
       const colliderObj = collider.gameObject;
-      const diff = colliderObj.position.sub(mario.position.sub(mario.linearVelocity));
+      const diff = colliderObj.position.sub(playerEntity.position.sub(playerEntity.linearVelocity));
       if (Math.abs(diff.y) < colliderObj.size.y/2 + 20) {
-        mario.linearVelocity = mario.linearVelocity.mult(new Vector3(0,1,1));
-        mario.position = mario.position.mult(new Vector3(0,1,1)).add(new Vector3(colliderObj.position.x - (colliderObj.size.x/2 + 25.1) * Math.sign(diff.x)));
+        playerEntity.linearVelocity = playerEntity.linearVelocity.mult(new Vector3(0,1,1));
+        playerEntity.position = playerEntity.position.mult(new Vector3(0,1,1)).add(new Vector3(colliderObj.position.x - (colliderObj.size.x/2 + 25.1) * Math.sign(diff.x)));
       }else{
-        mario.linearVelocity = mario.linearVelocity.mult(new Vector3(1,0,1));
-        mario.position = mario.position.mult(new Vector3(1,0,1)).add(new Vector3(0, colliderObj.position.y - (colliderObj.size.y/2 + 25.1) * Math.sign(diff.y) ));
+        playerEntity.linearVelocity = playerEntity.linearVelocity.mult(new Vector3(1,0,1));
+        playerEntity.position = playerEntity.position.mult(new Vector3(1,0,1)).add(new Vector3(0, colliderObj.position.y - (colliderObj.size.y/2 + 25.1) * Math.sign(diff.y) ));
       }
     }
   });
