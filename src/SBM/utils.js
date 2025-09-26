@@ -61,6 +61,7 @@ function GetTextOfElement(element) {
     ["display", "none"],
     ["visibility", "hidden"],
   ];
+}
 
   function isAVisibleElement(element) {
     const style = window.getComputedStyle(element);
