@@ -39,16 +39,14 @@ function bunsCollisions() {
   colliders.forEach((collider) => {
     if (collider != mario.collision && collider.touching(mario)) {
       const colliderObj = collider.gameObject;
-      const diff = colliderObj.position.sub(mario.position);
-
-      if (Math.abs(diff.y - 25) < colliderObj.size.y/2) {
+      const diff = colliderObj.position.sub(mario.position.sub(mario.linearVelocity));
+      if (Math.abs(diff.y) < colliderObj.size.y/2 + 20) {
         mario.linearVelocity = mario.linearVelocity.mult(new Vector3(0,1,1));
-        mario.position = mario.position.mult(new Vector3(0,1,1)).add(new Vector3(colliderObj.position.x - (colliderObj.size.x/2 + 25.5) * Math.sign(diff.x)) );
+        mario.position = mario.position.mult(new Vector3(0,1,1)).add(new Vector3(colliderObj.position.x - (colliderObj.size.x/2 + 25.1) * Math.sign(diff.x)));
       }else{
-        mario.linearVelocity = mario.linearVelocity.mult(new Vector3(1, 0, 1));
-        mario.position = mario.position.mult(new Vector3(1,0,1)).add(new Vector3(0, colliderObj.position.y + colliderObj.size.y/2 + 25.5));
+        mario.linearVelocity = mario.linearVelocity.mult(new Vector3(1,0,1));
+        mario.position = mario.position.mult(new Vector3(1,0,1)).add(new Vector3(0, colliderObj.position.y - (colliderObj.size.y/2 + 25.1) * Math.sign(diff.y) ));
       }
-
     }
   });
 }
