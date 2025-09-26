@@ -4,8 +4,8 @@ document.addEventListener("keydown", function (e) {
   if (e.repeat) {
     return;
   }
-  if (e.key == "z" && currentPlayerEntity) {
-    currentPlayerEntity.linearVelocity = currentPlayerEntity.linearVelocity
+  if (e.key == "z" && playerEntity) {
+    playerEntity.linearVelocity = playerEntity.linearVelocity
       .mult(new Vector3(1, 0, 1))
       .add(new Vector3(0, 15, 0));
   }
@@ -26,7 +26,8 @@ function controlUpdate() {
       moveDirection = new Vector3(-1, 0, 0);
       break;
   }
-  if (currentPlayerEntity) {
-    currentPlayerEntity.moveDirection = moveDirection;
+  
+  if (playerEntity) {
+    playerEntity.moveDirection = moveDirection;
   }
 }
