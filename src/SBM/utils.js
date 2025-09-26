@@ -51,6 +51,32 @@ function GetTextOfElement(element) {
     },
     "",
   );
+
+    const requiredVisibleStyles = [
+    [
+      "background",
+      "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+    ],
+    ["border", "0px none rgb(0, 0, 0)"],
+    ["display", "none"],
+    ["visibility", "hidden"],
+  ];
+
+  function isAVisibleElement(element) {
+    const style = window.getComputedStyle(element);
+    let valid = true;
+
+    if (isStringBlank(GetTextOfElement(element))) {
+      requiredVisibleStyles.every((styleData) => {
+        if (style.getPropertyValue(styleData[0]) == styleData[1]) {
+          valid = false;
+          return false;
+        }
+      });
+    }
+
+    return valid;
+  }
 }
 
 function isStringBlank(str) {
