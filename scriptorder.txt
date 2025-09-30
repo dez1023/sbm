@@ -4,6 +4,7 @@ collision
 objects
 entities
 player
+camera
 controls
 init
 main
