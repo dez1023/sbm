@@ -5,6 +5,13 @@ const operations = {
   "/": (a, b) => a / b,
 };
 
+const Enum = Object.freeze({
+  cameraMode: {
+    Locked: 1,
+    FollowSubject: 2,
+  },
+});
+
 function doMath(num1, operator, num2) {
   if (operations[operator]) {
     return operations[operator](num1, num2);
