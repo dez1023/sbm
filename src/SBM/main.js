@@ -1,13 +1,9 @@
 function MainUpdate() {
-  console.log("transform")
-  body.style.transform = `rotateY(${45}deg) translate(${-playerEntity.position.x + window.innerWidth / 2}px, ${playerEntity.position.y + window.innerHeight / 2}px)`;
-  console.log("update")
+  body.style.transform = `rotateY(${0}deg) translate(${-playerEntity.position.x + window.innerWidth / 2}px, ${playerEntity.position.y + window.innerHeight / 2}px)`;
   playerEntity.frameUpdate();
   playerEntity.linearVelocity = playerEntity.linearVelocity.sub(new Vector3(0, 1, 0));
-  console.log("coll and control")
   bunsCollisions();
   controlUpdate();
-  console.log("req")
   window.requestAnimationFrame(MainUpdate);
 }
 
@@ -21,6 +17,3 @@ startButton.addEventListener("click", (ev) => {
   startButton.remove();
   InitGame();
 });
-
-startButton.remove();
-InitGame();
