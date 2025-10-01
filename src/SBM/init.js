@@ -38,5 +38,5 @@ function InitGame() {
   mario.element.style =
     "all: unset; position: absolute; background: white; border: 1px solid black; width: 50px; height: 50px;";
   playerEntity = mario;
-  window.requestAnimationFrame(MainUpdate);
+  //window.requestAnimationFrame(MainUpdate);
 }
