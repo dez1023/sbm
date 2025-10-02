@@ -22,6 +22,12 @@ document.addEventListener("keyup", function (e) {
 function controlUpdate() {
   let moveDirection = new Vector3();
   switch (true) {
+    case keysDown.has("ArrowUp"):
+      moveDirection = new Vector3(0, 0, -1);
+      break;
+    case keysDown.has("ArrowDown"):
+      moveDirection = new Vector3(0, 0, 1);
+      break;
     case keysDown.has("ArrowRight"):
       moveDirection = new Vector3(1, 0, 0);
       break;
