@@ -35,6 +35,7 @@ function controlUpdate() {
       case keysDown.has("ArrowLeft"):
         moveDirection = new Vector3(0, 0, -1);
       break;
+    }
   }else{
     switch (true) {
       case keysDown.has("ArrowRight"):
