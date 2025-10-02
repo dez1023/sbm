@@ -43,11 +43,15 @@ class Vector3 {
 
   static one = new Vector3(1, 1, 1);
 
-  static transformElement(element, vec3) {
+  static transformElement(element, pos, rot) {
     const rect = element.getBoundingClientRect();
-    element.style.left = vec3.x - rect.width / 2 + "px";
-    element.style.top = -vec3.y - rect.height / 2 + "px";
-  }
+    element.style.left = pos.x - rect.width / 2 + "px";
+    element.style.top = -pos.y - rect.height / 2 + "px";
+    if (rot) {
+      element.style.transform = `translateZ(${pos.z}px) rotateY(${rot.y}deg)`;
+    }else{
+      element.style.transform = `translateZ(${pos.z}px)`;
+    }
 }
 
 function GetTextOfElement(element) {
