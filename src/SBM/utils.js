@@ -52,6 +52,7 @@ class Vector3 {
     }else{
       element.style.transform = `translateZ(${pos.z}px)`;
     }
+  }
 }
 
 function GetTextOfElement(element) {
