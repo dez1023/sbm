@@ -4,8 +4,8 @@ document.addEventListener("keydown", function (e) {
   if (e.repeat) {
     return;
   }
-  if (e.key == "z" && playerEntity) {
-    playerEntity.linearVelocity = playerEntity.linearVelocity
+  if (e.key == "z" && SBM.playerEntity) {
+    SBM.playerEntity.linearVelocity = SBM.playerEntity.linearVelocity
       .mult(new Vector3(1, 0, 1))
       .add(new Vector3(0, 15, 0));
   }
@@ -30,7 +30,7 @@ function controlUpdate() {
       break;
   }
   
-  if (playerEntity) {
-    playerEntity.moveDirection = moveDirection;
+  if (SBM.playerEntity) {
+    SBM.playerEntity.moveDirection = moveDirection;
   }
 }
