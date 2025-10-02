@@ -9,8 +9,8 @@ document.addEventListener("keydown", function (e) {
       .mult(new Vector3(1, 0, 1))
       .add(new Vector3(0, 15, 0));
   }
-  if (e.key == "x" && currentCamera) {
-    currentCamera.view3D = !currentCamera.view3D;
+  if (e.key == "x" && SBM.currentCamera) {
+    SBM.currentCamera.view3D = !SBM.currentCamera.view3D;
   }
   keysDown.add(e.key);
 });
