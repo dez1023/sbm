@@ -1,15 +1,18 @@
 const entities = [];
 
 class Entity extends GameObject {
+  rotateWithCamera = false;
+  
   constructor(position, size) {
     super(position);
     this.size = size;
+    this.rotation = new Vector3;
     this.element = document.createElement("canvas");
     entities.push(this);
   }
 
   frameUpdate() {
-    Vector3.transformElement(this.element, this.position);
+    Vector3.transformElement(this.element, this.position, this.rotation);
   }
 }
 
