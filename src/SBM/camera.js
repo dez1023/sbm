@@ -28,6 +28,6 @@ class Camera extends GameObject {
       }
     }
     body.style.perspective = 7800 - this.fov * 100 + "px";
-    body.style.transform = `translate3d(${this.position.x}px, ${this.position.y}px, ${this.position.z}px)`;
+    body.style.transform = `rotateY(${this.rotation.y}deg) translate(${-this.position.x + window.innerWidth/2}px, ${this.position.y + window.innerHeight/2}px)`;
   }
 }
