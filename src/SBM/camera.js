@@ -18,7 +18,7 @@ class Camera extends GameObject {
     this._view3D = newValue;
     root.style.setProperty("--face-display", newValue ? "inline" : "none");
     this.fov = newValue ? 70 : 0;
-    this.rotation = new Vector3(0, newValue ? 75 : 0);
+    this.rotation = new Vector3(0, newValue ? 90 : 0);
   }
 
   frameUpdate() {
