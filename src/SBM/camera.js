@@ -32,4 +32,5 @@ class Camera extends GameObject {
     }
     root.style.perspective = 70800 - this.fov * 1000 + "px";
     body.style.transform = `rotateX(${this.rotation.x}deg) rotateY(${this.rotation.y}deg) translate3d(${-this.position.x + window.innerWidth/2}px, ${this.position.y + window.innerHeight/2}px, ${-this.position.z}px)`;
+  }
 }
