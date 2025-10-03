@@ -68,7 +68,7 @@ function createBoxFromElement(element) {
   const rect = element.getBoundingClientRect();
   const box = new Box(
     new Vector3((rect.left + rect.right) / 2, rect.height / 2 - rect.bottom),
-    new Vector3(rect.width, rect.height, 200),
+    new Vector3(rect.width, rect.height, 600),
     element,
   );
   const highlight = box.debugHighlight();
