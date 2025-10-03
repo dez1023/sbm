@@ -25,11 +25,16 @@ class Camera extends GameObject {
     if (this.subjects.length > 0) {
       switch (this.mode) {
         case 2:
-        this.position = this.subjects[0].position;
+          if (this.view3D) {
+            this.position = this.subjects[0].position.mult(new Vector3(1,0,1)).add(new Vector3(0,300));
+            this.rotation.x = 10;
+          }else{
+            this.position = this.subjects[0].position;
+          }
         break;
       }
     }
     root.style.perspective = 70800 - this.fov * 1000 + "px";
-    body.style.transform = `rotateY(${this.rotation.y}deg) translate3d(${-this.position.x + window.innerWidth/2}px, ${this.position.y + window.innerHeight/2}px, ${-this.position.z}px)`;
+    body.style.transform = `rotate3d(${this.rotation.x}deg, ${this.rotation.y}deg, ${this.rotation.z}deg) translate3d(${-this.position.x + window.innerWidth/2}px, ${this.position.y + window.innerHeight/2}px, ${-this.position.z}px)`;
   }
 }
