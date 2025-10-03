@@ -22,19 +22,17 @@ document.addEventListener("keyup", function (e) {
 function controlUpdate() {
   let moveDirection = new Vector3();
   if (SBM.currentCamera && SBM.currentCamera.view3D) {
-    switch (true) {
-      case keysDown.has("ArrowUp"):
-        moveDirection =  moveDirection.add(new Vector3(1));
-      break;
-      case keysDown.has("ArrowDown"):
-        moveDirection = moveDirection.add(new Vector3(-1));
-      break;
-      case keysDown.has("ArrowRight"):
-        moveDirection = moveDirection.add(new Vector3(0, 0, 1));
-      break;
-      case keysDown.has("ArrowLeft"):
-        moveDirection = moveDirection.add(new Vector3(0, 0, -1));
-      break;
+    if (keysDown.has("ArrowUp")) {
+      moveDirection =  moveDirection.add(new Vector3(1));
+    }
+    if (keysDown.has("ArrowDown")) {
+      moveDirection =  moveDirection.add(new Vector3(-1));
+    }
+    if (keysDown.has("ArrowRight")) {
+      moveDirection =  moveDirection.add(new Vector3(0,0,1));
+    }
+    if (keysDown.has("ArrowLeft")) {
+      moveDirection =  moveDirection.add(new Vector3(0,0,-1));
     }
   }else{
     switch (true) {
