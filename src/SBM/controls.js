@@ -46,8 +46,7 @@ function controlUpdate() {
       break;
     }
   }
-}
-  
-if (SBM.playerEntity) {
-  SBM.playerEntity.moveDirection = moveDirection;
+  if (SBM.playerEntity) {
+    SBM.playerEntity.moveDirection = moveDirection;
+  }
 }
