@@ -48,7 +48,7 @@ class Vector3 {
     element.style.left = pos.x - rect.width / 2 + "px";
     element.style.top = -pos.y - rect.height / 2 + "px";
     if (rot) {
-      element.style.transform = `rotateY(${rot.y}deg) translateZ(${pos.z}px)`;
+      element.style.transform = `translateZ(${pos.z}px) rotateY(${rot.y}deg) `;
     }else{
       element.style.transform = `translateZ(${pos.z}px)`;
     }
