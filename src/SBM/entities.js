@@ -12,7 +12,7 @@ class Entity extends GameObject {
   }
 
   frameUpdate() {
-    const rot = this.rotateWithCamera ? this.rotation.add(0, SBM.currentCamera.rotation.y) : this.rotation;
+    const rot = this.rotateWithCamera ? this.rotation.add(new Vector3(0, SBM.currentCamera.rotation.y)) : this.rotation;
     Vector3.transformElement(this.element, this.position, rot);
   }
 }
