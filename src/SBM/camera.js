@@ -18,7 +18,7 @@ class Camera extends GameObject {
     this._view3D = newValue;
     root.style.setProperty("--face-display", newValue ? "inline" : "none");
     this.fov = newValue ? 70 : 0;
-    this.rotation = new Vector3(0, newValue ? 45 : 0);
+    this.rotation = new Vector3(0, newValue ? 75 : 0);
   }
 
   frameUpdate() {
@@ -29,7 +29,7 @@ class Camera extends GameObject {
         break;
       }
     }
-    root.style.perspective = 7800 - this.fov * 100 + "px";
+    root.style.perspective = 70800 - this.fov * 1000 + "px";
     body.style.transform = `rotateY(${this.rotation.y}deg) translate3d(${-this.position.x + window.innerWidth/2}px, ${this.position.y + window.innerHeight/2}px, ${-this.position.z}px)`;
   }
 }
