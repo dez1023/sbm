@@ -12,7 +12,8 @@ class Entity extends GameObject {
   }
 
   frameUpdate() {
-    Vector3.transformElement(this.element, this.position, this.rotation);
+    const rot = this.rotateWithCamera ? this.rotation.add(0, SBM.currentCamera.rotation.y) : this.rotation;
+    Vector3.transformElement(this.element, this.position, rot);
   }
 }
 
