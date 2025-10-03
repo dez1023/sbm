@@ -24,16 +24,16 @@ function controlUpdate() {
   if (SBM.currentCamera && SBM.currentCamera.view3D) {
     switch (true) {
       case keysDown.has("ArrowUp"):
-        moveDirection = new Vector3(1, 0, 0);
+        moveDirection =  moveDirection.add(new Vector3(1));
       break;
       case keysDown.has("ArrowDown"):
-        moveDirection = new Vector3(-1, 0, 0);
+        moveDirection = moveDirection.add(new Vector3(-1));
       break;
       case keysDown.has("ArrowRight"):
-        moveDirection = new Vector3(0, 0, 1);
+        moveDirection = moveDirection.add(new Vector3(0, 0, 1));
       break;
       case keysDown.has("ArrowLeft"):
-        moveDirection = new Vector3(0, 0, -1);
+        moveDirection = moveDirection.add(new Vector3(0, 0, -1));
       break;
     }
   }else{
@@ -46,6 +46,7 @@ function controlUpdate() {
       break;
     }
   }
+  
   if (SBM.playerEntity) {
     SBM.playerEntity.moveDirection = moveDirection;
   }
