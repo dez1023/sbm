@@ -1,10 +1,14 @@
 function appendScript(src, onload) {
     const scriptElement = document.createElement("script");
-    scriptElement.async = false;
     scriptElement.src = base + src;
     scriptElement.onload = onload;
-    scriptElement.setAttribute("defer", "");
     document.head.appendChild(scriptElement);
+}
+
+function appendStyleSheet(href) {
+    const styleSheet = document.createElement("style");
+    styleSheet.href = href;
+    document.head.appendChild(styleSheet);
 }
 
 function scriptChain() {

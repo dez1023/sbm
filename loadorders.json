@@ -1,0 +1,24 @@
+{
+    "scripts": {
+        "base": "scripts/",
+        "urls": [
+            "index",
+            "utils",
+            "collision",
+            "objects",
+            "entities",
+            "player",
+            "camera",
+            "controls",
+            "init",
+            "main"
+        ]
+    },
+
+    "css": {
+        "base": "css/",
+        "urls": [
+            "index"
+        ]
+    }
+}
