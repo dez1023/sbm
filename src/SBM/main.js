@@ -1,7 +1,14 @@
+SBM.currentCamera = new Camera(new Vector3(), new Vector3());
+SBM.currentCamera.subjects.push(mario);
+SBM.currentCamera.view3D = false;
+mario.rotateWithCamera = true;
+
 function MainUpdate() {
-  body.style.transform = `rotateY(${0}deg) translate(${-playerEntity.position.x + window.innerWidth / 2}px, ${playerEntity.position.y + window.innerHeight / 2}px)`;
-  playerEntity.frameUpdate();
-  playerEntity.linearVelocity = playerEntity.linearVelocity.sub(new Vector3(0, 1, 0));
+  SBM.currentCamera.frameUpdate();
+  SBM.playerEntity.frameUpdate();
+  SBM.playerEntity.linearVelocity = SBM.playerEntity.linearVelocity.sub(
+    new Vector3(0, 1),
+  );
   bunsCollisions();
   controlUpdate();
   window.requestAnimationFrame(MainUpdate);
@@ -16,4 +23,6 @@ document.body.appendChild(startButton);
 startButton.addEventListener("click", (ev) => {
   startButton.remove();
   InitGame();
+  window.scrollTo(0, 0);
+  window.requestAnimationFrame(MainUpdate);
 });
