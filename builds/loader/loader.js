@@ -1,20 +1,39 @@
+const base = "/src/SBM/";
 const scripts = [
-'/src/SBM/index.js', 
-'/src/SBM/utils.js', 
-'/src/SBM/collision.js', 
-'/src/SBM/objects.js', 
-'/src/SBM/entities.js', 
-'/src/SBM/player.js', 
-'/src/SBM/camera.js', 
-'/src/SBM/controls.js', 
-'/src/SBM/init.js', 
-'/src/SBM/main.js', 
+'scripts/index.js', 
+'scripts/utils.js', 
+'scripts/collision.js', 
+'scripts/objects.js', 
+'scripts/entities.js', 
+'scripts/player.js', 
+'scripts/camera.js', 
+'scripts/controls.js', 
+'scripts/init.js', 
+'scripts/main.js', 
 ];
-
-scripts.forEach((script) => {
+function appendScript(src, onload) {
     const scriptElement = document.createElement("script");
-    scriptElement.src = script;
-    document.body.appendChild(scriptElement);
-});
+    scriptElement.async = false;
+    scriptElement.src = base + src;
+    scriptElement.onload = onload;
+    scriptElement.setAttribute("defer", "");
+    document.head.appendChild(scriptElement);
+}
 
-console.log("loaded");
+function scriptChain() {
+    const script = scripts.shift();
+    /*if (script == editing || !script) {
+        console.log("[editing]: " + script)
+        return;
+    }*/
+    console.log(script);
+    let loaded = false;
+    appendScript(script, function () {
+        if (!loaded) {
+            loaded = true;
+            scriptChain();
+        }
+    });
+}
+
+scriptChain();
