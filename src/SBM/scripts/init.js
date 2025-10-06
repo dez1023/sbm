@@ -38,5 +38,4 @@ function InitGame() {
   mario.element.style =
     "all: unset; position: absolute; background: white; border: 1px solid black; width: 50px; height: 50px;";
   SBM.playerEntity = mario;
-  //window.requestAnimationFrame(MainUpdate);
 }

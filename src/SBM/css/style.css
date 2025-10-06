@@ -4,6 +4,6 @@
 
 .face-3d {
   position: absolute;
-  display: var(--face-display);
+  display: var(--face-display) !important;
   backface-visibility: hidden;
 }

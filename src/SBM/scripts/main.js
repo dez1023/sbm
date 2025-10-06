@@ -22,7 +22,7 @@ document.body.appendChild(startButton);
 
 startButton.addEventListener("click", (ev) => {
   startButton.remove();
-  InitGame();
   window.scrollTo(0, 0);
+  InitGame();
   window.requestAnimationFrame(MainUpdate);
 });

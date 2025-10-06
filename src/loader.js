@@ -6,17 +6,18 @@ function appendScript(src, onload) {
 }
 
 function appendStyleSheet(href) {
-    const styleSheet = document.createElement("style");
-    styleSheet.href = href;
-    document.head.appendChild(styleSheet);
+    const styleSheet = document.createElement("link");
+    console.log(href);
+    styleSheet.rel = "stylesheet";
+    styleSheet.href = base+href;
+    document.head.prepend(styleSheet);
 }
 
 function scriptChain() {
     const script = scripts.shift();
-    /*if (script == editing || !script) {
-        console.log("[editing]: " + script)
+    if (!script) {
         return;
-    }*/
+    }
     console.log(script);
     let loaded = false;
     appendScript(script, function () {
