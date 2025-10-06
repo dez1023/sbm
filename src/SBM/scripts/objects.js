@@ -65,17 +65,24 @@ function createBoxFromElement(element) {
     element.style.background = "inherit";
   }
 
+  const parentStyle = window.getComputedStyle(element.parentNode);
+  const parentMatrixValues = parentStyle.transform.match(/matrix3d\(([^)]+)\)/)[1].split(', ');
+  const inheritedZ = parseFloat(values[14]);
   const rect = element.getBoundingClientRect();
+
+  console.log("inherited z value: "+inheritedZ);
   const box = new Box(
-    new Vector3((rect.left + rect.right) / 2, rect.height / 2 - rect.bottom),
+    new Vector3((rect.left + rect.right) / 2, rect.height / 2 - rect.bottom, inheritedZ),
     new Vector3(rect.width, rect.height, 600),
     element,
   );
+  
   const highlight = box.debugHighlight();
   const hlRect = highlight.getBoundingClientRect();
   box.position = box.position.sub(
     new Vector3(rect.left - hlRect.left, rect.top - hlRect.top),
   );
+  
   highlight.remove();
   create3DFacesForBoxElement(box);
   //Vector3.transformElement(highlight, box.position);
