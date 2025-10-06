@@ -53,6 +53,19 @@ class Vector3 {
       element.style.transform = `translateZ(${pos.z}px)`;
     }
   }
+
+  static fromTransform(transform) {
+  	let result = new Vector3;
+
+  	if (transform.startsWith("matrix3d")) {
+    	const matrix = transform
+      	.match(/matrix3d\(([^)]+)\)/)[1]
+      	.split(", ");
+    	result = new Vector3(parseFloat(matrix[12]), parseFloat(matrix[13]), parseFloat(matrix[14]));
+  	}
+
+  	return result;
+	}
 }
 
 function GetTextOfElement(element) {
