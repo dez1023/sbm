@@ -28,7 +28,9 @@ class Box extends GameObject {
 // replace the goofy ah with a sheet
 function create3DFacesForBoxElement(box) {
   const boxElement = box.element;
-  boxElement.style.transform += `translateZ(${box.position.z + box.size.z / 2}px)`;
+  const parentStyle = window.getComputedStyle(boxElement.parentNode);
+  const inheritedPos = Vector3.fromTransform(parentStyle.transform);
+  boxElement.style.transform += `translateZ(${box.position.z - inheritedPos.z + box.size.z / 2}px)`;
   boxElement.style.transformStyle = "preserve-3d";
   const topFace = document.createElement("div");
   topFace.style = `background: lightgrey; width: 100%; height: ${box.size.z}px; left: 0; top: 0; transform: translate3d(0, -50%, ${-box.size.z / 2}px) rotateX(90deg);`;
@@ -66,23 +68,25 @@ function createBoxFromElement(element) {
   }
 
   const parentStyle = window.getComputedStyle(element.parentNode);
-  const parentMatrixValues = parentStyle.transform.match(/matrix3d\(([^)]+)\)/)[1].split(', ');
-  const inheritedZ = parseFloat(values[14]);
+  const inheritedPos = Vector3.fromTransform(parentStyle.transform);
   const rect = element.getBoundingClientRect();
 
-  console.log("inherited z value: "+inheritedZ);
   const box = new Box(
-    new Vector3((rect.left + rect.right) / 2, rect.height / 2 - rect.bottom, inheritedZ),
-    new Vector3(rect.width, rect.height, 600),
+    new Vector3(
+      (rect.left + rect.right) / 2,
+      rect.height / 2 - rect.bottom,
+      inheritedPos.z,
+    ),
+    new Vector3(rect.width, rect.height, 500),
     element,
   );
-  
+
   const highlight = box.debugHighlight();
   const hlRect = highlight.getBoundingClientRect();
   box.position = box.position.sub(
     new Vector3(rect.left - hlRect.left, rect.top - hlRect.top),
   );
-  
+
   highlight.remove();
   create3DFacesForBoxElement(box);
   //Vector3.transformElement(highlight, box.position);
