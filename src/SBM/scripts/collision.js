@@ -38,8 +38,8 @@ class BoxCollision extends Collision {
 function collide(entity, colliderObj, dir, axis, diff) {
   const subDir = Vector3.one.sub(dir);
   entity.linearVelocity = entity.linearVelocity.mult(subDir);
-  entity.position = entity.position.mult(subDir.add(
-    dir.mult(colliderObj.position[axis] - (colliderObj.size[axis] / 2 + 25.1) * Math.sign(diff[axis])))
+  entity.position = entity.position.mult(subDir).add(
+    dir.mult(colliderObj.position[axis] - (colliderObj.size[axis] / 2 + 25.1) * Math.sign(diff[axis]))
   );
 }
 
