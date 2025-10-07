@@ -35,17 +35,30 @@ class BoxCollision extends Collision {
   }
 }
 
+function collide(entity, colliderObj, dir, axis, diff) {
+  const subDir = Vector3.one.sub(dir);
+  entity.linearVelocity = entity.linearVelocity.mult(subDir);
+  entity.position = entity.position.mult(subDir.add(
+    dir.mult(colliderObj.position[axis] - (colliderObj.size[axis] / 2 + 25.1) * Math.sign(diff[axis]))
+  );
+}
+
 function bunsCollisions() {
   colliders.forEach((collider) => {
-    if (collider != SBM.playerEntity.collision && collider.touching(SBM.playerEntity)) {
+    plrEntity = SBM.playerEntity;
+    if (collider != plrEntity.collision && collider.touching(plrEntity)) {
       const colliderObj = collider.gameObject;
-      const diff = colliderObj.position.sub(SBM.playerEntity.position.sub(SBM.playerEntity.linearVelocity));
-      if (Math.abs(diff.y) < colliderObj.size.y/2 + 20) {
-        SBM.playerEntity.linearVelocity = SBM.playerEntity.linearVelocity.mult(new Vector3(0,1,1));
-        SBM.playerEntity.position = SBM.playerEntity.position.mult(new Vector3(0,1,1)).add(new Vector3(colliderObj.position.x - (colliderObj.size.x/2 + 25.1) * Math.sign(diff.x)));
-      }else{
-        SBM.playerEntity.linearVelocity = SBM.playerEntity.linearVelocity.mult(new Vector3(1,0,1));
-        SBM.playerEntity.position = SBM.playerEntity.position.mult(new Vector3(1,0,1)).add(new Vector3(0, colliderObj.position.y - (colliderObj.size.y/2 + 25.1) * Math.sign(diff.y) ));
+      const diff = colliderObj.position.sub(
+        plrEntity.position.sub(plrEntity.linearVelocity),
+      );
+      if (Math.abs(diff.y) < colliderObj.size.y / 2 + 20) {
+        if (Math.abs(diff.z) < colliderObj.size.z / 2) {
+          collide(plrEntity, colliderObj, new Vector3(1), "x", diff);
+        } else {
+          collide(plrEntity, colliderObj, new Vector3(0,0,1), "z", diff);
+        }
+      } else {
+        collide(plrEntity, colliderObj, new Vector3(0,1), "y", diff);
       }
     }
   });
