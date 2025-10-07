@@ -18,7 +18,7 @@ function InitGame() {
   });
 
   document.querySelectorAll("div, a, p, h1").forEach((element) => {
-    if (element.classList.contains("face-3d") && !isAVisibleElement(element)) {
+    if (element.classList.contains("face-3d") && !isAVisibleElement(element) || element == SPMbody) {
       return;
     }
     const rect = element.getBoundingClientRect();
