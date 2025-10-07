@@ -87,6 +87,8 @@ function createBoxFromElement(element) {
     new Vector3(rect.left - hlRect.left, rect.top - hlRect.top),
   );
 
+  element.classList.add("SBM_BoxObject");
+
   highlight.remove();
   create3DFacesForBoxElement(box);
   //Vector3.transformElement(highlight, box.position);
