@@ -16,9 +16,9 @@ function MainUpdate() {
 
 const startButton = document.createElement("button");
 startButton.textContent = "Start";
-startButton.className = "SPMui outlineShadow";
+startButton.className = "SBMui outlineShadow";
 startButton.id = "startButton";
-body.appendChild(startButton);
+SBMbody.appendChild(startButton);
 
 startButton.addEventListener("click", (ev) => {
   startButton.remove();
