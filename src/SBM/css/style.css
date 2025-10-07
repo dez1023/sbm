@@ -29,7 +29,7 @@ div, a, p, h1 {
   box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
 }
 
-.SPMui#loadUi {
+.SBMui#loadUi {
   position: fixed;
   bottom: 0;
   background: white;
@@ -37,7 +37,7 @@ div, a, p, h1 {
   margin: 10px;
 }
 
-.SPMui#startButton {
+.SBMui#startButton {
   all: unset;
   position: fixed;
   left: 50%;
@@ -55,12 +55,12 @@ div, a, p, h1 {
   color: rgb(40, 40, 40);
 }
 
-.SPMui#startButton:hover {
+.SBMui#startButton:hover {
   transform: translate(calc(-50% - 3px), calc(-50% - 3px));
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
-.SPMui {
+.SBMui {
   font-family: "PaperMario", Helvetica, sans-serif;
   font-size: 10px;
   color: rgb(40, 40, 40);
