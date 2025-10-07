@@ -14,7 +14,7 @@
   transform-style: preserve-3d;
 }
 
-div, a, p, h1 {
+.SBM_BoxObject {
   border: 1px solid black;
 }
 
