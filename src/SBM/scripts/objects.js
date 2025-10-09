@@ -70,14 +70,16 @@ function createBoxFromElement(element) {
   const parentStyle = window.getComputedStyle(element.parentNode);
   const inheritedPos = Vector3.fromTransform(parentStyle.transform);
   const rect = element.getBoundingClientRect();
+  let zLength = element.parentNode == body ? 500 : 100;
+  zLength += 1000 * rect.top / document.documentElement.scrollHeight;
 
   const box = new Box(
     new Vector3(
       (rect.left + rect.right) / 2,
       rect.height / 2 - rect.bottom,
-      inheritedPos.z,
+      inheritedPos.z + zLength/2,
     ),
-    new Vector3(rect.width, rect.height, 500),
+    new Vector3(rect.width, rect.height, zLength),
     element,
   );
 
