@@ -2,7 +2,7 @@ const body = document.body;
 const root = document.documentElement;
 //
 const mario = new PlayerEntity(
-  new Vector3(100, wHeight, 0),
+  new Vector3(100, wHeight, 250),
   new Vector3(50, 50, 50),
   10,
   10,
