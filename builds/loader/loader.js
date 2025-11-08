@@ -1,22 +1,24 @@
 const base = "/src/SBM/";
 const scripts = [
-    'scripts/index.js',
-    'scripts/utils.js',
-    'scripts/collision.js',
-    'scripts/objects.js',
-    'scripts/entities.js',
-    'scripts/player.js',
-    'scripts/camera.js',
-    'scripts/controls.js',
-    'scripts/init.js',
-    'scripts/main.js',
+'scripts/index.js', 
+'scripts/utils.js', 
+'scripts/collision.js', 
+'scripts/objects.js', 
+'scripts/entities.js', 
+'scripts/player.js', 
+'scripts/camera.js', 
+'scripts/controls.js', 
+'scripts/init.js', 
+'scripts/main.js', 
 ];
-
-const loadUi = document.createElement("span");
-const scriptCount = scripts.length;
-loadUi.className = "SPMui outlineShadow";
-loadUi.id = "loadUi";
-document.body.appendChild(loadUi);
+  const SBMbody = document.createElement("div");
+  const loadUi = document.createElement("span");
+  const scriptCount = scripts.length;
+  loadUi.className = "SBMui outlineShadow";
+  SBMbody.id = "SBMbody";
+  loadUi.id = "loadUi";
+  document.body.appendChild(loadUi);
+  document.documentElement.appendChild(SBMbody);
 
 function updateLoadUi() {
     const done = scripts.length == 0;

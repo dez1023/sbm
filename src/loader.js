@@ -1,8 +1,11 @@
-const loadUi = document.createElement("span");
-const scriptCount = scripts.length;
-loadUi.className = "SPMui outlineShadow";
-loadUi.id = "loadUi";
-document.body.appendChild(loadUi);
+  const SBMbody = document.createElement("div");
+  const loadUi = document.createElement("span");
+  const scriptCount = scripts.length;
+  loadUi.className = "SBMui outlineShadow";
+  SBMbody.id = "SBMbody";
+  loadUi.id = "loadUi";
+  document.body.appendChild(loadUi);
+  document.documentElement.appendChild(SBMbody);
 
 function updateLoadUi() {
     const done = scripts.length == 0;
